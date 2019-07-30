@@ -18,9 +18,9 @@ function App() {
     <div className="App">
         <Router>
             <ThemeProvider theme={muiTheme}>
-                <Route path="/" component={Search} />
                 <Suspense fallback={<p>loading...</p>}>
                     <Switch>
+                        <Route path="/" exact component={Search} />
                         <Route path="/results" exact component={LazyResults} />
                     </Switch>
                 </Suspense>
