@@ -1,24 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Suspense, lazy } from 'react';
+import {
+    BrowserRouter as Router,
+    Route,
+    Redirect,
+    Switch,
+    withRouter,
+} from 'react-router-dom';
 import './App.css';
+import { ThemeProvider } from '@material-ui/styles';
+import muiTheme from './theme/muiTheme';
+import Search from './components/Search';
+
+const LazyResults = lazy(() => import('./components/Results'));
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Router>
+            <ThemeProvider theme={muiTheme}>
+                <Suspense fallback={<p>loading...</p>}>
+                    <Switch>
+                        <Route path="/" exact component={Search} />
+                        <Route path="/results" exact component={LazyResults} />
+                    </Switch>
+                </Suspense>
+            </ThemeProvider>
+        </Router>
     </div>
   );
 }
