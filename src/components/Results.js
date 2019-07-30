@@ -3,7 +3,13 @@ import { withStyles } from '@material-ui/core/styles';
 
 const styles = theme => ({
     root: {
-        color: 'rebeccapurple'
+        color: 'rebeccapurple',
+        '& img': {
+            width: 100,
+            height: 100,
+            borderRadius: 50,
+            border: '1px solid #00f'
+        }
     },
 });
 
@@ -21,6 +27,7 @@ class Results extends Component {
         return (
             <div className={classes.root}>
                 <h2>Results</h2>
+                <img src={results.avatar_url} alt="github avatar"/>
                 {entries}
             </div>
         )
