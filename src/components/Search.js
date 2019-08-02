@@ -51,7 +51,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function Search() {
+const Search = () => {
     const classes = useStyles();
 
     const [term, setTerm] = useState('');
@@ -69,7 +69,7 @@ export default function Search() {
             .then(response => {
                 setData(response.data);
             })
-            .catch(error => console.log(error));
+            .catch(error => console.error(error));
     };
 
     return (
@@ -91,7 +91,6 @@ export default function Search() {
                 </div>
                 <Button type='submit'>Search</Button>
             </form>
-            {console.log(data)}
             {data &&
                 <Redirect to={{
                     pathname: '/results',
@@ -101,3 +100,5 @@ export default function Search() {
         </div>
     );
 }
+
+export default Search;
