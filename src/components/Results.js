@@ -1,24 +1,32 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
+import Profile from './Profile';
 
 const styles = theme => ({
     root: {
         color: 'rebeccapurple',
-        '& img': {
-            width: 100,
-            height: 100,
-            borderRadius: 50,
-            border: '1px solid #00f'
-        }
     },
 });
 
 class Results extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            userData: null
+        }
+    }
+
+    componentDidMount() {
+        this.setState({
+            userData: this.props.location.state.results
+        })
+    }
+
     render() {
         const { classes } = this.props;
-        const results = this.props.location.state.results;
+        const { userData } = this.state;
 
-        const entries = results && Object.entries(results).map(([key, value]) => {
+        const entries = userData && Object.entries(userData).map(([key, value]) => {
             return (
                 <div>{key}: {value}</div>
             )
@@ -26,9 +34,14 @@ class Results extends Component {
 
         return (
             <div className={classes.root}>
-                <h2>Results</h2>
-                <img src={results.avatar_url} alt="github avatar"/>
-                {entries}
+                {userData &&
+                    <>
+                        <Profile userData={userData}/>
+                        <div style={{marginTop: '100px'}}>
+                            {entries}
+                        </div>
+                    </>
+                }
             </div>
         )
     }
