@@ -84,13 +84,8 @@ const Results = props => {
     return (
         <div className={classes.root}>
                 <>
-                    <h2>test</h2>
                     {userData && <Profile userData={userData}/>}
-                    {langData && repoData && <PieChart data={langData} />}
-                        {/*<PieChart chartLabel="languages" data={testData}/>*/}
-                        {/*<div style={{marginTop: '100px'}}>*/}
-                            {/*{entries}*/}
-                        {/*</div>*/}
+                    {langData && <PieChart langData={langData}/>}
                 </>
             </div>
     )
