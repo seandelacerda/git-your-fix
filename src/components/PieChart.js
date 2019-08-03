@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {fade, makeStyles, withStyles} from '@material-ui/core/styles';
+import { makeStyles, withStyles} from '@material-ui/core/styles';
 import createChartParams from '../utils/createChartParams';
 import PropTypes from 'prop-types';
 import PolarAreaChart from 'react-chartjs-2';
@@ -35,9 +35,6 @@ const PieChart = ({ langData, repoData }) => {
             initLangChart();
         }
     }, []);
-
-    const chartSize = 300;
-    const langChartError = !(langChartData && langChartData.length > 0);
 
     return (
         <div className={classes.root}>
