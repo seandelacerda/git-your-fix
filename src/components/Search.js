@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import { Redirect } from 'react-router'
 import { fade, makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
@@ -51,7 +50,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Search = () => {
+const Search = props => {
     const classes = useStyles();
 
     const [term, setTerm] = useState('');
@@ -62,14 +61,9 @@ const Search = () => {
         setTerm(event.target.value);
     };
 
-    const handleSubmit = async (event) => {
-        event.preventDefault();
-        const url = `https://api.github.com/users/${term}`;
-        await axios.get(url)
-            .then(response => {
-                setData(response.data);
-            })
-            .catch(error => console.error(error));
+    const handleSubmit = () => {
+        let query = `q=${term}`;
+        props.history.push(`/results?${query}`);
     };
 
     return (
@@ -91,12 +85,6 @@ const Search = () => {
                 </div>
                 <Button type='submit'>Search</Button>
             </form>
-            {data &&
-                <Redirect to={{
-                    pathname: '/results',
-                    state: { results: data }
-                }}/>
-            }
         </div>
     );
 }
