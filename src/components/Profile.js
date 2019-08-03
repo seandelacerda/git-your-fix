@@ -1,23 +1,36 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Redirect } from 'react-router'
-import { fade, makeStyles } from '@material-ui/core/styles';
-import { Button } from '@material-ui/core';
-import InputBase from '@material-ui/core/InputBase';
-import SearchIcon from '@material-ui/icons/Search';
+import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles(theme => ({
     root: {
-        color: theme.palette.secondary.main
+        color: theme.palette.secondary.main,
+        backgroundColor: theme.palette.background.main,
+        padding: 50,
     },
     avatar: {
         '& img': {
-            width: 100,
-            height: 100,
-            borderRadius: 50,
-            border: '1px solid #00f'
+            width: 150,
+            height: 150,
+            borderRadius: '50%',
+            boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
         }
-    }
+    },
+    userHeading: {
+        fontSize: 42
+    },
+    info: {
+        maxWidth: '50%',
+        margin: '0 auto',
+        display: 'flex',
+        justifyContent: 'space-between',
+        '& span': {
+
+        },
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column'
+        },
+    },
+
 }));
 
 const Profile = ({ userData }) => {
@@ -33,7 +46,7 @@ const Profile = ({ userData }) => {
                         </div>
                     )}
 
-                    {userData.name && <h1>{userData.name}</h1>}
+                    {userData.name && <h1 className={classes.userHeading}>{userData.name}</h1>}
 
                     {userData.login && (
                         <h2>
@@ -43,21 +56,21 @@ const Profile = ({ userData }) => {
                         </h2>
                     )}
 
-                    <div className="info">
+                    <div className={classes.info}>
                         {userData.company && (
-                            <span className="info__item">
+                            <span>
                                 {userData.company}
                             </span>
                         )}
 
                         {userData.location && (
-                            <span className="info__item">
+                            <span>
                                 {userData.location}
                             </span>
                         )}
 
                         {userData.created_at && (
-                            <span className="info__item">
+                            <span>
                                 Joined{' '}
                                 {new Date(userData.created_at).toLocaleDateString('en-US', {
                                     month: 'long',

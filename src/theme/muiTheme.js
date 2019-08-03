@@ -11,6 +11,9 @@ const muiTheme = createMuiTheme({
         secondary: {
             main: '#9E1CB5',
         },
+        background: {
+            main: '#DEDEDE',
+        }
     },
 });
 

@@ -8,8 +8,6 @@ import getQueryString from "../utils/getQueryString";
 
 const useStyles = makeStyles(theme => ({
     root: {
-        width: '50%',
-        margin: '0 auto',
         [theme.breakpoints.down('sm')]: {
             width: '100%',
         },
