@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Group } from '@material-ui/icons';
+import { Button } from '@material-ui/core';
+import { Group, Place, CalendarToday } from '@material-ui/icons';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -13,7 +14,7 @@ const useStyles = makeStyles(theme => ({
             width: 150,
             height: 150,
             borderRadius: '50%',
-            boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
+            boxShadow: '4px 2px 61px 0px rgba(255,255,255,.5)'
         }
     },
     userHeading: {
@@ -27,13 +28,24 @@ const useStyles = makeStyles(theme => ({
         '& span': {
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            fontSize: 18,
+            '& svg': {
+                marginRight: 5
+            }
         },
-        [theme.breakpoints.down('sm')]: {
+        [theme.breakpoints.down('md')]: {
             flexDirection: 'column'
         },
     },
-
+    link: {
+        color: theme.palette.secondary.main
+    },
+    button: {
+        margin: '30px auto 0',
+        color: theme.palette.background.main,
+        fontSize: 18
+    }
 }));
 
 const Profile = ({ userData }) => {
@@ -53,7 +65,7 @@ const Profile = ({ userData }) => {
 
                     {userData.login && (
                         <h2>
-                            <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
+                            <a className={classes.link} href={userData.html_url} target="_blank" rel="noopener noreferrer">
                                 @{userData.login}
                             </a>
                         </h2>
@@ -68,12 +80,13 @@ const Profile = ({ userData }) => {
 
                         {userData.location && (
                             <span>
-                                {userData.location}
+                                <Place/>{userData.location}
                             </span>
                         )}
 
                         {userData.created_at && (
                             <span>
+                                <CalendarToday/>
                                 Joined{' '}
                                 {new Date(userData.created_at).toLocaleDateString('en-US', {
                                     month: 'long',
@@ -85,18 +98,16 @@ const Profile = ({ userData }) => {
                     </div>
 
                     <div>
-                        <div>
-                            <span>{userData.public_repos.toLocaleString()}</span>
-                            <span>Public Repositories</span>
-                        </div>
-                        <div>
-                            <span>{userData.followers.toLocaleString()}</span>
-                            <span>Followers</span>
-                        </div>
-                        <div>
-                            <span>{userData.following.toLocaleString()}</span>
-                            <span>Following</span>
-                        </div>
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            className={classes.button}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={`${userData.html_url}?tab=repositories`}
+                        >
+                            {`${userData.public_repos.toLocaleString()} Public Repositories`}
+                        </Button>
                     </div>
                 </>
             }
