@@ -5,28 +5,24 @@ import { Button } from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
 
+import octocat from '../assets/Octocat.png';
+
 const useStyles = makeStyles(theme => ({
     root: {
-        width: '50%',
-        margin: '0 auto',
-        [theme.breakpoints.down('sm')]: {
-            width: '100%',
-        },
+        width: '100%',
+        height: '100%',
+        backgroundColor: '#24292e'
     },
     search: {
+        width: '30%',
+        margin: 'auto',
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
-        backgroundColor: fade(theme.palette.primary.main, 0.15),
-        '&:hover': {
-            backgroundColor: fade(theme.palette.primary.main, 0.25),
-        },
-        marginRight: theme.spacing(2),
-        marginLeft: 0,
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-            marginLeft: theme.spacing(3),
-            width: 'auto',
-        },
+        backgroundColor: '#393e42',
+        color: '#bdbec0',
+        [theme.breakpoints.down('sm')]: {
+            width: '90%'
+        }
     },
     searchIcon: {
         width: theme.spacing(7),
@@ -39,15 +35,33 @@ const useStyles = makeStyles(theme => ({
     },
     inputRoot: {
         color: 'inherit',
+        height: '45px',
+        fontSize: '18px'
     },
     inputInput: {
-        padding: theme.spacing(1, 1, 1, 7),
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('md')]: {
-            width: 200,
-        },
+        width: '100%'
     },
+    button: {
+        color: 'white',
+        background: '#28a745',
+        marginTop: '10px',
+        fontSize: '15px',
+        lineHeight: '20px',
+        '&:hover': {
+            backgroundColor: '#24963e'
+        }
+    },
+    form: {
+        paddingTop: '8%',
+        [theme.breakpoints.down('sm')]: {
+            paddingTop: '20%'
+        }
+    },
+    image: {
+        [theme.breakpoints.down('sm')]: {
+            width: '200px'
+        }
+    }
 }));
 
 const Search = props => {
@@ -66,13 +80,14 @@ const Search = props => {
 
     return (
         <div className={classes.root}>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className={classes.form}>
+                <img src={octocat} alt="octocat" className={classes.image} />
                 <div className={classes.search}>
                     <div className={classes.searchIcon}>
                         <SearchIcon />
                     </div>
                     <InputBase
-                        placeholder="Enter a github username"
+                        placeholder="Enter a GitHub username"
                         classes={{
                             root: classes.inputRoot,
                             input: classes.inputInput,
@@ -81,7 +96,14 @@ const Search = props => {
                         onChange={handleChange}
                     />
                 </div>
-                <Button type='submit'>Search</Button>
+                <Button
+                    variant="contained"
+                    color="secondary"
+                    className={classes.button}
+                    type='submit'
+                    >
+                    Search
+                </Button>
             </form>
         </div>
     );

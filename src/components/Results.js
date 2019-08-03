@@ -71,9 +71,6 @@ const Results = props => {
     };
 
     useEffect(() => {
-        fetch(`https://api.github.com/rate_limit`)
-            .then(response => response.json());
-
         getUserData();
         getLangData();
         getRepoData();
