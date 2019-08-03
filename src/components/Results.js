@@ -19,7 +19,6 @@ const useStyles = makeStyles(theme => ({
 const Results = props => {
     const classes = useStyles();
     const username = getQueryString(props.location.search).q;
-    console.log(username)
     const [userData, setUserData] = useState(null);
     const [langData, setLangData] = useState(null);
     const [repoData, setRepoData] = useState(null);
