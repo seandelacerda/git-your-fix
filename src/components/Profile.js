@@ -30,9 +30,15 @@ const useStyles = makeStyles(theme => ({
             alignItems: 'center',
             justifyContent: 'center',
             fontSize: 18,
+            minWidth: 200,
             '& svg': {
                 marginRight: 5
-            }
+            },
+            [theme.breakpoints.down('sm')]: {
+                flexDirection: 'column',
+                minWidth: 'auto'
+            },
+
         },
         [theme.breakpoints.down('md')]: {
             flexDirection: 'column'
@@ -42,10 +48,14 @@ const useStyles = makeStyles(theme => ({
         color: theme.palette.secondary.main
     },
     button: {
-        margin: '30px auto 0',
-        color: theme.palette.background.main,
-        fontSize: 18
-    }
+        color: theme.palette.secondary.main,
+        background: '#28a745',
+        margin: '30px auto 60px',
+        fontSize: 18,
+        '&:hover': {
+            backgroundColor: '#24963e'
+        }
+    },
 }));
 
 const Profile = ({ userData }) => {
