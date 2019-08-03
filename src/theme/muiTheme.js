@@ -9,8 +9,11 @@ const muiTheme = createMuiTheme({
             main: '#4568F9',
         },
         secondary: {
-            main: '#9E1CB5',
+            main: '#FFF',
         },
+        background: {
+            main: '#24292E',
+        }
     },
 });
 

@@ -1,22 +1,50 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { Redirect } from 'react-router'
-import { fade, makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
-import InputBase from '@material-ui/core/InputBase';
-import SearchIcon from '@material-ui/icons/Search';
+import { Group, Place, CalendarToday } from '@material-ui/icons';
 
 const useStyles = makeStyles(theme => ({
     root: {
-        color: theme.palette.secondary.main
+        color: theme.palette.secondary.main,
+        backgroundColor: theme.palette.background.main,
+        padding: 50,
     },
     avatar: {
         '& img': {
-            width: 100,
-            height: 100,
-            borderRadius: 50,
-            border: '1px solid #00f'
+            width: 150,
+            height: 150,
+            borderRadius: '50%',
+            boxShadow: '4px 2px 61px 0px rgba(255,255,255,.5)'
         }
+    },
+    userHeading: {
+        fontSize: 42
+    },
+    info: {
+        maxWidth: '50%',
+        margin: '0 auto',
+        display: 'flex',
+        justifyContent: 'space-between',
+        '& span': {
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            fontSize: 18,
+            '& svg': {
+                marginRight: 5
+            }
+        },
+        [theme.breakpoints.down('md')]: {
+            flexDirection: 'column'
+        },
+    },
+    link: {
+        color: theme.palette.secondary.main
+    },
+    button: {
+        margin: '30px auto 0',
+        color: theme.palette.background.main,
+        fontSize: 18
     }
 }));
 
@@ -33,31 +61,32 @@ const Profile = ({ userData }) => {
                         </div>
                     )}
 
-                    {userData.name && <h1>{userData.name}</h1>}
+                    {userData.name && <h1 className={classes.userHeading}>{userData.name}</h1>}
 
                     {userData.login && (
                         <h2>
-                            <a href={userData.html_url} target="_blank" rel="noopener noreferrer">
+                            <a className={classes.link} href={userData.html_url} target="_blank" rel="noopener noreferrer">
                                 @{userData.login}
                             </a>
                         </h2>
                     )}
 
-                    <div className="info">
+                    <div className={classes.info}>
                         {userData.company && (
-                            <span className="info__item">
-                                {userData.company}
+                            <span>
+                                <Group/>{userData.company}
                             </span>
                         )}
 
                         {userData.location && (
-                            <span className="info__item">
-                                {userData.location}
+                            <span>
+                                <Place/>{userData.location}
                             </span>
                         )}
 
                         {userData.created_at && (
-                            <span className="info__item">
+                            <span>
+                                <CalendarToday/>
                                 Joined{' '}
                                 {new Date(userData.created_at).toLocaleDateString('en-US', {
                                     month: 'long',
@@ -69,18 +98,16 @@ const Profile = ({ userData }) => {
                     </div>
 
                     <div>
-                        <div>
-                            <span>{userData.public_repos.toLocaleString()}</span>
-                            <span>Public Repositories</span>
-                        </div>
-                        <div>
-                            <span>{userData.followers.toLocaleString()}</span>
-                            <span>Followers</span>
-                        </div>
-                        <div>
-                            <span>{userData.following.toLocaleString()}</span>
-                            <span>Following</span>
-                        </div>
+                        <Button
+                            variant="contained"
+                            color="secondary"
+                            className={classes.button}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            href={`${userData.html_url}?tab=repositories`}
+                        >
+                            {`${userData.public_repos.toLocaleString()} Public Repositories`}
+                        </Button>
                     </div>
                 </>
             }
