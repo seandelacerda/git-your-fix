@@ -8,6 +8,7 @@ import getQueryString from "../utils/getQueryString";
 
 const useStyles = makeStyles(theme => ({
     root: {
+        backgroundColor: '#FAFBFC',
         [theme.breakpoints.down('sm')]: {
             width: '100%',
         },

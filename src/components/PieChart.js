@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles, withStyles} from '@material-ui/core/styles';
 import createChartParams from '../utils/createChartParams';
+import { Card, CardHeader, CardContent } from '@material-ui/core'
 import PropTypes from 'prop-types';
-import PolarAreaChart from 'react-chartjs-2';
+import Pie from 'react-chartjs-2';
 
 const useStyles = makeStyles(theme => ({
     root: {
-
+        width: '50%',
+        margin: '30px auto',
+        [theme.breakpoints.down('sm')]: {
+            width: '100%'
+        },
+        padding: '40px 0'
     },
 }));
 
-const PieChart = ({ langData, repoData }) => {
+const PieChart = ({ langData }) => {
     const classes = useStyles();
-    console.log(langData)
     const [langChartData, setLangChartData] = useState(null);
     const initLangChart = () => {
         const labels = langData.map(lang => lang.label);
@@ -37,9 +42,12 @@ const PieChart = ({ langData, repoData }) => {
     }, []);
 
     return (
-        <div className={classes.root}>
-            <PolarAreaChart data={langChartData}/>
-        </div>
+        <Card className={classes.root}>
+            <CardHeader title="Most used languages"/>
+            <CardContent>
+                <Pie data={langChartData}/>
+            </CardContent>
+        </Card>
     );
 };
 
