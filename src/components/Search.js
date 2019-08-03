@@ -55,8 +55,6 @@ const Search = props => {
 
     const [term, setTerm] = useState('');
 
-    const [data, setData] = useState(null);
-
     const handleChange = event => {
         setTerm(event.target.value);
     };
