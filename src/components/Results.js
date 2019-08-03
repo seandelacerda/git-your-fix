@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import
 import {fade, makeStyles, withStyles} from '@material-ui/core/styles';
 import Profile from './Profile';
 import PieChart from "./PieChart";
 import GhPolyglot from 'gh-polyglot';
+import getQueryString from "../utils/getQueryString";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -18,8 +18,8 @@ const useStyles = makeStyles(theme => ({
 
 const Results = props => {
     const classes = useStyles();
-    const username = props.location.search;
-    console.log(props)
+    const username = getQueryString(props.location.search).q;
+    console.log(username)
     const [userData, setUserData] = useState(null);
     const [langData, setLangData] = useState(null);
     const [repoData, setRepoData] = useState(null);
@@ -79,10 +79,6 @@ const Results = props => {
         getUserData();
         getLangData();
         getRepoData();
-
-        // setUserData(mockUserData);
-        // setLangData(mockLangData);
-        // setRepoData(mockRepoData);
     }, []);
 
     return (
