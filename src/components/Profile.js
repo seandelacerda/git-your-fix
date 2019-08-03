@@ -8,7 +8,7 @@ import SearchIcon from '@material-ui/icons/Search';
 
 const useStyles = makeStyles(theme => ({
     root: {
-
+        color: theme.palette.secondary.main
     },
     avatar: {
         '& img': {
@@ -68,18 +68,18 @@ const Profile = ({ userData }) => {
                         )}
                     </div>
 
-                    <div className="stats">
-                        <div className="stats__item">
-                            <span className="num">{userData.public_repos.toLocaleString()}</span>
-                            <span className="num-label">Public Repositories</span>
+                    <div>
+                        <div>
+                            <span>{userData.public_repos.toLocaleString()}</span>
+                            <span>Public Repositories</span>
                         </div>
-                        <div className="stats__item">
-                            <span className="num">{userData.followers.toLocaleString()}</span>
-                            <span className="num-label">Followers</span>
+                        <div>
+                            <span>{userData.followers.toLocaleString()}</span>
+                            <span>Followers</span>
                         </div>
-                        <div className="stats__item">
-                            <span className="num">{userData.following.toLocaleString()}</span>
-                            <span className="num-label">Following</span>
+                        <div>
+                            <span>{userData.following.toLocaleString()}</span>
+                            <span>Following</span>
                         </div>
                     </div>
                 </>
