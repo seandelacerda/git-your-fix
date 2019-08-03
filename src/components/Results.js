@@ -8,6 +8,7 @@ import getQueryString from "../utils/getQueryString";
 
 const useStyles = makeStyles(theme => ({
     root: {
+        backgroundColor: '#FAFBFC',
         [theme.breakpoints.down('sm')]: {
             width: '100%',
         },
@@ -70,9 +71,6 @@ const Results = props => {
     };
 
     useEffect(() => {
-        fetch(`https://api.github.com/rate_limit`)
-            .then(response => response.json());
-
         getUserData();
         getLangData();
         getRepoData();
