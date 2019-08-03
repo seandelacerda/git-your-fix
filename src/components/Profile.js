@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { Group } from '@material-ui/icons';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -24,7 +25,9 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         justifyContent: 'space-between',
         '& span': {
-
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
         },
         [theme.breakpoints.down('sm')]: {
             flexDirection: 'column'
@@ -59,7 +62,7 @@ const Profile = ({ userData }) => {
                     <div className={classes.info}>
                         {userData.company && (
                             <span>
-                                {userData.company}
+                                <Group/>{userData.company}
                             </span>
                         )}
 
