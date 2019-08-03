@@ -8,7 +8,7 @@ import Pie from 'react-chartjs-2';
 const useStyles = makeStyles(theme => ({
     root: {
         width: '50%',
-        margin: '30px auto',
+        margin: '-65px auto',
         [theme.breakpoints.down('sm')]: {
             width: '100%'
         },
