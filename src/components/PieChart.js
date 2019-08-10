@@ -8,7 +8,7 @@ import Pie from 'react-chartjs-2';
 const useStyles = makeStyles(theme => ({
     root: {
         width: '50%',
-        margin: '-65px auto',
+        margin: '-65px auto 0',
         [theme.breakpoints.down('sm')]: {
             width: '100%'
         },
@@ -42,12 +42,14 @@ const PieChart = ({ langData }) => {
     }, [langData]);
 
     return (
-        <Card className={classes.root}>
-            <CardHeader title="Most used languages"/>
-            <CardContent>
-                {langChartData && <Pie data={langChartData}/>}
-            </CardContent>
-        </Card>
+        langData.length > 0 &&
+           <Card className={classes.root}>
+                <CardHeader title="Most used languages"/>
+                <CardContent>
+                    {langChartData && <Pie data={langChartData}/>}
+                </CardContent>
+           </Card>
+
     );
 };
 
