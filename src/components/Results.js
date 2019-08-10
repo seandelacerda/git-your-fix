@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import {fade, makeStyles, withStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Profile from './Profile';
 import PieChart from "./PieChart";
 import GhPolyglot from 'gh-polyglot';
