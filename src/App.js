@@ -10,6 +10,7 @@ import './App.css';
 import { ThemeProvider } from '@material-ui/styles';
 import muiTheme from './theme/muiTheme';
 import Search from './components/Search';
+import Loader from './components/Loader';
 
 const LazyResults = lazy(() => import('./components/Results'));
 
@@ -18,7 +19,7 @@ function App() {
     <div className="App">
         <Router>
             <ThemeProvider theme={muiTheme}>
-                <Suspense fallback={<p>loading...</p>}>
+                <Suspense fallback={<Loader/>}>
                     <Switch>
                         <Route path="/" exact component={Search} />
                         <Route path="/results" exact component={LazyResults} />
