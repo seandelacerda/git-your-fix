@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router'
-import { fade, makeStyles } from '@material-ui/core/styles';
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';

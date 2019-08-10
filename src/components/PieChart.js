@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles, withStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import createChartParams from '../utils/createChartParams';
 import { Card, CardHeader, CardContent } from '@material-ui/core'
 import PropTypes from 'prop-types';
@@ -8,7 +8,7 @@ import Pie from 'react-chartjs-2';
 const useStyles = makeStyles(theme => ({
     root: {
         width: '50%',
-        margin: '-65px auto',
+        margin: '-65px auto 0',
         [theme.breakpoints.down('sm')]: {
             width: '100%'
         },
@@ -36,24 +36,25 @@ const PieChart = ({ langData }) => {
     };
 
     useEffect(() => {
-        if (langData.length) {
+        if (langData) {
             initLangChart();
         }
-    }, []);
+    }, [langData]);
 
     return (
-        <Card className={classes.root}>
-            <CardHeader title="Most used languages"/>
-            <CardContent>
-                <Pie data={langChartData}/>
-            </CardContent>
-        </Card>
+        langData.length > 0 &&
+           <Card className={classes.root}>
+                <CardHeader title="Most used languages"/>
+                <CardContent>
+                    {langChartData && <Pie data={langChartData}/>}
+                </CardContent>
+           </Card>
+
     );
 };
 
 PieChart.propTypes = {
     langData: PropTypes.array.isRequired,
-    repoData: PropTypes.array.isRequired,
 };
 
 export default PieChart;
