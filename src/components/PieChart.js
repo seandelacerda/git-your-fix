@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { makeStyles, withStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import createChartParams from '../utils/createChartParams';
 import { Card, CardHeader, CardContent } from '@material-ui/core'
 import PropTypes from 'prop-types';
@@ -36,16 +36,16 @@ const PieChart = ({ langData }) => {
     };
 
     useEffect(() => {
-        if (langData.length) {
+        if (langData) {
             initLangChart();
         }
-    }, []);
+    }, [langData]);
 
     return (
         <Card className={classes.root}>
             <CardHeader title="Most used languages"/>
             <CardContent>
-                <Pie data={langChartData}/>
+                {langChartData && <Pie data={langChartData}/>}
             </CardContent>
         </Card>
     );
@@ -53,7 +53,6 @@ const PieChart = ({ langData }) => {
 
 PieChart.propTypes = {
     langData: PropTypes.array.isRequired,
-    repoData: PropTypes.array.isRequired,
 };
 
 export default PieChart;
