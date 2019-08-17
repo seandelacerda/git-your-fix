@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+import Footer from './Footer';
 
 import octocat from '../assets/Octocat.png';
 
@@ -70,17 +71,6 @@ const useStyles = makeStyles(theme => ({
         background: '#28a745 !important',
         color: 'white !important',
         opacity: '0.4'
-    },
-    footer: {
-        position: 'fixed',
-        bottom: 0,
-        right: 0,
-        margin: '0 20px 20px 0',
-        color: 'white'
-    },
-    link: {
-        color: '#0366d6',
-        textDecoration: 'none'
     }
 }));
 
@@ -131,9 +121,7 @@ const Search = props => {
                     Search
                 </Button>
             </form>
-            <div className={classes.footer}>
-                Created by <a href="https://github.com/t-g-c" target="_blank" className={classes.link}>TGC</a>
-            </div>
+            <Footer></Footer>
         </div>
     );
 }
