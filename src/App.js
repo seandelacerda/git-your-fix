@@ -17,7 +17,7 @@ const LazyResults = lazy(() => import('./components/Results'));
 function App() {
   return (
     <div className="App">
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
             <ThemeProvider theme={muiTheme}>
                 <Suspense fallback={<Loader/>}>
                     <Switch>
