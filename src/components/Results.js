@@ -6,6 +6,7 @@ import PieChart from './PieChart';
 import Repos from './Repos';
 import GhPolyglot from 'gh-polyglot';
 import getQueryString from "../utils/getQueryString";
+import Footer from './Footer';
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -80,12 +81,12 @@ const Results = props => {
 
     return (
         <div className={classes.root}>
-                <>
-                    {userData && <Profile userData={userData}/>}
-                    {langData && <PieChart langData={langData}/>}
-                    {repoData && <Repos repoData={repoData} />}
-                </>
-            </div>
+            <>
+                {userData && <Profile userData={userData}/>}
+                {langData && <PieChart langData={langData}/>}
+            </>
+            <Footer></Footer>
+        </div>
     )
 };
 
