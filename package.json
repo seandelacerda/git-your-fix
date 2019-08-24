@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": false,
   "license": "MIT",
-  "homepage":"https://t-g-c.github.io/t-g-c.github.io",
+  "homepage":"https://t-g-c.github.io/git-your-fix",
   "dependencies": {
     "@material-ui/core": "^4.3.0",
     "@material-ui/icons": "^4.2.1",
