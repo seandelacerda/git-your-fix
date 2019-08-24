@@ -84,8 +84,9 @@ const Results = props => {
             <>
                 {userData && <Profile userData={userData}/>}
                 {langData && <PieChart langData={langData}/>}
+                {repoData && <Repos repoData={repoData} />}
+                <Footer/>
             </>
-            <Footer></Footer>
         </div>
     )
 };
