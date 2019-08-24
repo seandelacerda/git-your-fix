@@ -1,14 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-import {fade, makeStyles, withStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Profile from './Profile';
-import PieChart from "./PieChart";
+import PieChart from './PieChart';
+import Repos from './Repos';
 import GhPolyglot from 'gh-polyglot';
 import getQueryString from "../utils/getQueryString";
+import Footer from './Footer';
 
 const useStyles = makeStyles(theme => ({
     root: {
         backgroundColor: '#4C4C4C',
+        paddingBottom: 100,
         [theme.breakpoints.down('sm')]: {
             width: '100%',
         },
@@ -78,11 +81,13 @@ const Results = props => {
 
     return (
         <div className={classes.root}>
-                <>
-                    {userData && <Profile userData={userData}/>}
-                    {langData && <PieChart langData={langData}/>}
-                </>
-            </div>
+            <>
+                {userData && <Profile userData={userData}/>}
+                {langData && <PieChart langData={langData}/>}
+                {repoData && <Repos repoData={repoData} />}
+                <Footer/>
+            </>
+        </div>
     )
 };
 

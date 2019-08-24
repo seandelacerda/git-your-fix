@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { Redirect } from 'react-router'
-import { fade, makeStyles } from '@material-ui/core/styles';
+import React, { useState } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
 import InputBase from '@material-ui/core/InputBase';
 import SearchIcon from '@material-ui/icons/Search';
+import Footer from './Footer';
 
 import octocat from '../assets/Octocat.png';
 
@@ -39,7 +39,9 @@ const useStyles = makeStyles(theme => ({
         fontSize: '18px'
     },
     inputInput: {
-        width: '100%'
+        width: '100%',
+        textAlign: 'center',
+        cursor: 'none'
     },
     button: {
         color: 'white',
@@ -61,6 +63,14 @@ const useStyles = makeStyles(theme => ({
         [theme.breakpoints.down('sm')]: {
             width: '200px'
         }
+    },
+    label: {
+        color: '#f1e05a'
+    },
+    disabled: {
+        background: '#28a745 !important',
+        color: 'white !important',
+        opacity: '0.4'
     }
 }));
 
@@ -68,6 +78,7 @@ const Search = props => {
     const classes = useStyles();
 
     const [term, setTerm] = useState('');
+    const disabled = !term;
 
     const handleChange = event => {
         setTerm(event.target.value);
@@ -82,12 +93,13 @@ const Search = props => {
         <div className={classes.root}>
             <form onSubmit={handleSubmit} className={classes.form}>
                 <img src={octocat} alt="octocat" className={classes.image} />
+                <p className={classes.label}>Enter a GitHub username to get started</p>
                 <div className={classes.search}>
                     <div className={classes.searchIcon}>
                         <SearchIcon />
                     </div>
                     <InputBase
-                        placeholder="Enter a GitHub username"
+                        autoFocus='true'
                         classes={{
                             root: classes.inputRoot,
                             input: classes.inputInput,
@@ -99,12 +111,17 @@ const Search = props => {
                 <Button
                     variant="contained"
                     color="secondary"
-                    className={classes.button}
+                    classes={{
+                        root: classes.button,
+                        disabled: classes.disabled
+                    }}
                     type='submit'
+                    disabled={disabled}
                     >
                     Search
                 </Button>
             </form>
+            <Footer></Footer>
         </div>
     );
 }
