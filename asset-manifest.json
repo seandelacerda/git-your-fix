@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/git-your-fix/static/css/main.fa1f8db6.chunk.css",
-    "main.js": "/git-your-fix/static/js/main.cd0225a8.chunk.js",
-    "main.js.map": "/git-your-fix/static/js/main.cd0225a8.chunk.js.map",
-    "runtime~main.js": "/git-your-fix/static/js/runtime~main.dc5d78a6.js",
-    "runtime~main.js.map": "/git-your-fix/static/js/runtime~main.dc5d78a6.js.map",
-    "static/js/2.fa276e50.chunk.js": "/git-your-fix/static/js/2.fa276e50.chunk.js",
-    "static/js/2.fa276e50.chunk.js.map": "/git-your-fix/static/js/2.fa276e50.chunk.js.map",
-    "static/js/3.3934e0db.chunk.js": "/git-your-fix/static/js/3.3934e0db.chunk.js",
-    "static/js/3.3934e0db.chunk.js.map": "/git-your-fix/static/js/3.3934e0db.chunk.js.map",
-    "static/js/4.959dc76e.chunk.js": "/git-your-fix/static/js/4.959dc76e.chunk.js",
-    "static/js/4.959dc76e.chunk.js.map": "/git-your-fix/static/js/4.959dc76e.chunk.js.map",
-    "index.html": "/git-your-fix/index.html",
-    "precache-manifest.892371bc583c1de4f182a07d6cc9571d.js": "/git-your-fix/precache-manifest.892371bc583c1de4f182a07d6cc9571d.js",
-    "service-worker.js": "/git-your-fix/service-worker.js",
-    "static/css/main.fa1f8db6.chunk.css.map": "/git-your-fix/static/css/main.fa1f8db6.chunk.css.map"
+    "main.css": "/t-g-c.github.io/static/css/main.fa1f8db6.chunk.css",
+    "main.js": "/t-g-c.github.io/static/js/main.0a2decb1.chunk.js",
+    "main.js.map": "/t-g-c.github.io/static/js/main.0a2decb1.chunk.js.map",
+    "runtime~main.js": "/t-g-c.github.io/static/js/runtime~main.fa241a6d.js",
+    "runtime~main.js.map": "/t-g-c.github.io/static/js/runtime~main.fa241a6d.js.map",
+    "static/js/2.faf4f8bd.chunk.js": "/t-g-c.github.io/static/js/2.faf4f8bd.chunk.js",
+    "static/js/2.faf4f8bd.chunk.js.map": "/t-g-c.github.io/static/js/2.faf4f8bd.chunk.js.map",
+    "static/js/3.3934e0db.chunk.js": "/t-g-c.github.io/static/js/3.3934e0db.chunk.js",
+    "static/js/3.3934e0db.chunk.js.map": "/t-g-c.github.io/static/js/3.3934e0db.chunk.js.map",
+    "static/js/4.959dc76e.chunk.js": "/t-g-c.github.io/static/js/4.959dc76e.chunk.js",
+    "static/js/4.959dc76e.chunk.js.map": "/t-g-c.github.io/static/js/4.959dc76e.chunk.js.map",
+    "index.html": "/t-g-c.github.io/index.html",
+    "precache-manifest.2f81b55559904e22ba6f9260202c23bb.js": "/t-g-c.github.io/precache-manifest.2f81b55559904e22ba6f9260202c23bb.js",
+    "service-worker.js": "/t-g-c.github.io/service-worker.js",
+    "static/css/main.fa1f8db6.chunk.css.map": "/t-g-c.github.io/static/css/main.fa1f8db6.chunk.css.map"
   }
 }
