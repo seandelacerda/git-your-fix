@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import Profile from './Profile';
-import PieChart from "./PieChart";
+import PieChart from './PieChart';
+import Repos from './Repos';
 import GhPolyglot from 'gh-polyglot';
 import getQueryString from "../utils/getQueryString";
 
 const useStyles = makeStyles(theme => ({
     root: {
         backgroundColor: '#4C4C4C',
-        height: '100%',
         paddingBottom: 100,
         [theme.breakpoints.down('sm')]: {
             width: '100%',
@@ -83,6 +83,7 @@ const Results = props => {
                 <>
                     {userData && <Profile userData={userData}/>}
                     {langData && <PieChart langData={langData}/>}
+                    {repoData && <Repos repoData={repoData} />}
                 </>
             </div>
     )
