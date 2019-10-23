@@ -58,6 +58,13 @@ const Repos = ({repoData}) => {
 
     useEffect(() => getTopRepos(sortby));
 
+    const getLanguageColor = (language) => {
+        if (language) {
+            return colors[language].color || '#000';
+        } else {
+            return '#000';
+        }
+    };
 
     return (
         <div className={classes.root}>
@@ -86,7 +93,7 @@ const Repos = ({repoData}) => {
                                         </h3>
                                         <p>{repo.description}</p>
                                         <div className={classes.section}>
-                                            <div style={{backgroundColor: colors[repo.language].color}}/>
+                                            <div style={{backgroundColor: getLanguageColor(repo.language)}}/>
                                             <span>{repo.language}</span>
                                         </div>
                                         <div className={classes.section}>
